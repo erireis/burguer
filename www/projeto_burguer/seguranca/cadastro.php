@@ -53,7 +53,7 @@
                                        <option value="Reduto"> Reduto</option>
                 </select></h3>
                         
-            <h3 id="m10">Login <br><input type="number" name="login" required=""></h3>
+            <h3 id="m10">Login <br><input type="text" name="login" required=""></h3>
             <h3 id="m11">Senha <br><input pattern="/^d{6}$" type="number" name="senha" required=""></h3>
             
             <a href="../cardapio/primeiropasso.php"><input type="submit" name="enviar" value="enviar"></a>

@@ -13,7 +13,7 @@ $cidade = $_post['cidade'];
 $bairro = $_post['bairro'];
 $cep = $_post['cep'];
 
-$sql = "INSERT INTO usuarios VALUES ('$login', '$senha', '$nome', '$cpf', '$endereco', '$numero', '$celular', $cidade', '$bairro', '$cep', '$tipo' )";
+$sql = "INSERT INTO usuarios VALUES ('', '$login', '$senha', '$nome', '$cpf', '$endereco', '$numero', '$celular', '', '$cidade', '$bairro', '$cep', '')";   
 
 /* @var $sql type */
 if(mysqli_query($conn, $sql)){
