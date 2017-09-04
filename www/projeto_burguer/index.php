@@ -18,13 +18,13 @@
     </head>
     <body>
                         
-        <h1 class="op0">Burguer Pará</h1>
+        <h1 class="op0">Casa do Hamburguer</h1>
         
         <div id="op1">
-            <a href="seguranca/login.php"><img src="imagens/Food/entrar.png" alt="Acessar"></a>            
+            <a href="seguranca/login.php"><img src="imagens/entrar.png" alt="Acessar"></a>            
         </div>
         <div id="op2">
-            <a href="seguranca/cadastro.php"><img src="imagens/Food/cadastro.png" alt="Cadastro"></a>  
+            <a href="seguranca/cadastro.php"><img src="imagens/cadastro.png" alt="Cadastro"></a>  
         </div>
          
         

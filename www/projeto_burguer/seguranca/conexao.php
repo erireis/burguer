@@ -1,3 +1,4 @@
+<html>
 <?php
 
 $host     = 'localhost';
@@ -6,8 +7,11 @@ $password = '';
 $database = 'mydb';
 
 $conn = mysqli_connect($host, $user, $password, $database);
-              
-if(!conn){
-    die("Connection Failed: " .mysqli_connect_error());
-    }
-       echo "connected Successfully";
+
+#@var $sql type 
+if(!$conn){
+    die("Falhou conexao: " .mysqli_connect_error());
+}
+echo "";
+?>
+</html>
