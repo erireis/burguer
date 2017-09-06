@@ -1,28 +1,19 @@
 <html>
-    <head>
-        <style>
-            #retorno{position: absolute; size: 90px; left: 600px; top: 500px}
-        </style>  
-    
 
-    </head>
-    
-    <body>
-        
 <?php
 
  include './conexao.php';
 
-        $login = $_POST['login'];
-        $senha = $_POST['senha'];
-        $nome = $_POST['nome'];
+        $login = $_POST['userlogin'];
+        $senha = $_POST['usersenha'];
+        $nome = $_POST['nomecompleto'];
         $cpf = $_POST['cpf'];
         $endereco = $_POST['endereco'];
-        $numero = $_POST['numero'];
-        @$celular = @$_POST['tel'];
-        $cidade = $_POST['cidade'];
-        $bairro = $_POST['bairro'];
-        $cep = $_POST['cep'];
+        $numero = $_POST['usenumber'];
+        @$celular = @$_POST['fone'];
+        $cidade = $_POST['usercidade'];
+        $bairro = $_POST['userbairro'];
+        $cep = $_POST['usercep'];
 
        
         if (!$conn) {
