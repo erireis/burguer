@@ -45,13 +45,14 @@
 								</p>
                                 <p class="change_link">
 									Ainda não se cadastrou ?
+                                                                        <a href="#tologin"  class="to_register"> Acessar</a>
 									<a href="#toregister" class="to_register">Me cadastrar</a>
 								</p>
                             </form>
                         </div>
 
                         <div id="register" class="animate form">
-                            <form name=cadastro method="post" action="inserirusuario.php" autocomplete="on"> 
+                            <form name="cadastro" method="post" action="inserirusuario.php" autocomplete="on"> 
                                 <h1> Efetue Cadastro </h1> 
                                 <p> 
                                     <label for="username" class="username" >Seu nome</label>
@@ -94,11 +95,11 @@
                                     <input id="usersenha" name="usersenha" required="required" type="password" placeholder="Ex.: X8df!90EO"/>
                                 </p>
                                 <p class="signin button"> 
-									<input type="submit" value="Sign up"/> 
+									<input type="submit" value="Enviar"/> 
 								</p>
                                 <p class="change_link">  
-									Already a member ?
-									<a href="#tologin" class="to_register"> Go and log in </a>
+									Já possui cadastro ?
+									<a href="#tologin" class="to_register"> Iniciar Login </a>
 								</p>
                             </form>
                         </div>

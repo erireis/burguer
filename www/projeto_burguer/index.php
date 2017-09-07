@@ -7,7 +7,7 @@
         <style>
             body{ background-image: url(imagens/TrimCaseInsert_Blank.jpg); }
             .op0{ position: absolute; left: 30px; font-family: cursive; font-size: 70px; color: #f46810 }
-            #op1{ position: absolute; left: 100px; top: 370px }
+            #op1{ position: absolute; left: 900px; top: 300px }
             #op2{ position: absolute; left: 1100px; top: 370px }
             
             #rodape { position:absolute; bottom:10px; width:99%; height:110px; background:#d73923; }
@@ -21,11 +21,9 @@
         <h1 class="op0">Casa do Hamburguer</h1>
         
         <div id="op1">
-            <a href="seguranca/login.php"><img src="imagens/entrar.png" alt="Acessar"></a>            
+            <a href="seguranca/login2.php"><img src="imagens/entrar.png" alt="Acessar"></a>            
         </div>
-        <div id="op2">
-            <a href="seguranca/cadastro.php"><img src="imagens/cadastro.png" alt="Cadastro"></a>  
-        </div>
+        
          
         
      <!-- Rodapé -->
