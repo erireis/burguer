@@ -10,7 +10,7 @@
             #op1{ position: absolute; left: 900px; top: 300px }
             #op2{ position: absolute; left: 1100px; top: 370px }
             
-            #rodape { position:absolute; bottom:10px; width:99%; height:110px; background:#d73923; }
+            #rodape { position:absolute; bottom:10px; width:99%; height:110px; background:#FFF; }
 
             
         </style>
@@ -28,11 +28,11 @@
         
      <!-- Rodapé -->
         
-    <div id="rodape">
+    <div id="rodape">   
    
-        <p>Endereço: Anvenida Doca Souza Franco, nº 779</p>
-        <p>Telefones: 91 984390372 - 30031070 </p>
-        <p>Email: sac@burguerpara.com.br</p>
+        <br>Endereço: BR 316 Km 4, nº 779<br>
+        Telefones: 91 984390372 - 30031070 <br>
+        Email: sac@casadohamburguer.com.br<br>
     </div>        
         
     </body>

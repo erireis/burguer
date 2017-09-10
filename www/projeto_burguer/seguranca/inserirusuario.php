@@ -9,7 +9,7 @@
         $nome = $_POST['nomecompleto'];
         $cpf = $_POST['cpf'];
         $endereco = $_POST['endereco'];
-        $numero = $_POST['usenumber'];
+        $numero = $_POST['usernumber'];
         @$celular = @$_POST['fone'];
         $cidade = $_POST['usercidade'];
         $bairro = $_POST['userbairro'];
@@ -23,11 +23,14 @@
                     if (mysqli_query(@$conn, @$sql)) {
                 echo "";
                     } else {
-                    echo "" . $sql . "<br>" . mysqli_error($conn);
+                    echo "Erro ao se cadastrar" . $sql . "<br>" . mysqli_error($conn);
                            } mysqli_close($conn);
                                                       
 ?>
-        <a id="retorno" href="login.php"><input type="button" name="Retorno"></a> 
+    <link href="../css/confirmacao.css" rel="stylesheet">
+    <h1>Cadastro feito com sucesso</h1>
+    <a id="retorno" href="login2.php"><input type="button" name="Retorno" value="Retorno ao login"></a>
+        
     </body>
 </html>
         

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+         
     <head>
         <meta charset="UTF-8" />
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
@@ -26,33 +24,34 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form name="cadastro" method="post" action="inserirusuario.php"> 
+                            <form class="login button" action="vld.php" autocomplete="on"> 
                                 <h1>Acessar</h1> 
                                 <p> 
                                     <label for="username" class="uname" > Login </label>
-                                    <input id="username" name="senhanome" required="required" type="text" placeholder="Nome login"/>
+                                    <input id="username" name="userlogin" required="required" type="text" placeholder="Nome login"/>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd"> Senha </label>
-                                    <input id="password" name="senhalogin" required="required" type="password" placeholder="Sua senha" /> 
+                                    <input id="password" name="usersenha" required="required" type="password" placeholder="Sua senha" /> 
                                 </p>
                                 <p class="keeplogin"> 
 									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
 									<label for="loginkeeping">Manter logado</label>
 								</p>
-                                <p class="login button"> 
-                                   <a href="http://cookingfoodsworld.blogspot.in/" target="_blank" ></a>
+                                <p class="login button">
+                                    <input type="submit"  value="Logar">
+                                    
 								</p>
                                 <p class="change_link">
 									Ainda não se cadastrou ?
-                                                                        <a href="#tologin"  class="to_register"> Acessar</a>
-									<a href="#toregister" class="to_register">Me cadastrar</a>
+                                                                        <a href="#toregister" class="to_register">Me cadastrar</a>
 								</p>
-                            </form>
-                        </div>
+ 
+                                </form>
+                            </div>
 
                         <div id="register" class="animate form">
-                            <form name="cadastro" method="post" action="inserirusuario.php" autocomplete="on"> 
+                            <form name="cadastro" method="POST" action="inserirusuario.php" autocomplete="on"> 
                                 <h1> Efetue Cadastro </h1> 
                                 <p> 
                                     <label for="username" class="username" >Seu nome</label>
