@@ -24,15 +24,15 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form class="login button" action="vld.php" autocomplete="on"> 
+                            <form class="login button" action="vld.php" method="post"> 
                                 <h1>Acessar</h1> 
                                 <p> 
                                     <label for="username" class="uname" > Login </label>
-                                    <input id="username" name="userlogin" required="required" type="text" placeholder="Nome login"/>
+                                    <input id="username" name="login" required="required" type="text" placeholder="Nome login"/>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd"> Senha </label>
-                                    <input id="password" name="usersenha" required="required" type="password" placeholder="Sua senha" /> 
+                                    <input id="password" name="senha" required="required" type="password" placeholder="Sua senha" /> 
                                 </p>
                                 <p class="keeplogin"> 
 									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 

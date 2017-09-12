@@ -9,13 +9,13 @@
  *  não existe a página redireciona o mesmo para a index.php.
  */
 session_start();
-if((!isset ($_SESSION['userlogin']) == true) and (!isset ($_SESSION['usersenha']) == true))
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
 {
-	unset($_SESSION['userlogin']);
-	unset($_SESSION['usersenha']);
-	echo "<script>location.href='http://localhost/projeto_burguer/seguranca/login2.php';</script>";
+	unset($_SESSION['login']);
+	unset($_SESSION['senha']);
+	echo "<script>location.href='http://localhost/projeto_burguer/index.php';</script>";
 	}
-$logado = $_SESSION['userlogin'];
+$logado = $_SESSION['login'];
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>SISTEMA WEB</title>
