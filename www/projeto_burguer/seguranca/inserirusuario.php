@@ -19,7 +19,7 @@
         if (!$conn) {
             die("Connec>on failed: " . mysqli_connect_error());
                     }
-            $sql = "INSERT INTO usuarios VALUES (null, '$login', '$senha', '$nome', '$cpf', '$endereco', '$numero', '$celular', null, '$cidade', '$bairro', '$cep', '')";
+            $sql = "INSERT INTO usuarios VALUES (null, '$login', '$senha', '$nome', '$cpf', '$endereco', '$numero', '$celular', '$cidade', '$bairro', '$cep', '')";
                     if (mysqli_query(@$conn, @$sql)) {
                 echo "";
                     } else {
