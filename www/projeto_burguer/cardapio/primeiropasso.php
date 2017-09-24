@@ -2,7 +2,7 @@
 <?php
 include '../seguranca/sessao.php';
 ?>
-<html lang="en">
+<html lang="pt">
 
   <head>
 
@@ -10,7 +10,6 @@ include '../seguranca/sessao.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Bare - Start Bootstrap Template</title>
 
     <!-- Bootstrap core CSS -->
@@ -26,6 +25,9 @@ include '../seguranca/sessao.php';
           padding-top: 56px;
         }
       }
+    .checkin1{position: absolute; left: 450px; top: 210px;}
+    .checkin2{position: absolute; left: 950px; top: 210px;}
+    
 
     </style>
 
@@ -44,18 +46,18 @@ include '../seguranca/sessao.php';
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+                <a class="nav-link" href="../seguranca/usuario.php">Inicio
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="primeiropasso.php">Pedidos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="#">Historico</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#">Cadastro</a>
             </li>
           </ul>
         </div>
@@ -65,15 +67,18 @@ include '../seguranca/sessao.php';
     <!-- Page Content -->
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-          <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-          <ul class="list-unstyled">
-            <li>Bootstrap 4.0.0-beta</li>
-            <li>jQuery 3.2.1</li>
-          </ul>
-        </div>
-      </div>
+            <?php
+            $sql = mysqli_query("SELECT * FROM itens", $conn);
+            while($res = mysqli_fetch_array($sql)){
+            ?>
+          <li>
+              <span><?php echo $res ['nome'] ?></span>
+              <strong><?php echo $res ['valor_unit'] ?></strong>
+          </li>
+          <?php
+            }
+          ?>
+          </div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
@@ -84,3 +89,24 @@ include '../seguranca/sessao.php';
   </body>
 
 </html>
+          <!--
+        <div class="checkin1">
+    
+            
+            <h3 id="p1"> Tradicional <input type="checkbox" name="tradicional" value="Tradicional"></h3>
+            <h3 id="p2"> Pao Batata  <input type="checkbox" name="batata" value="Batata"></h3>
+            <h3 id="p3"> Pao Vermelho <input type="checkbox" name="vermelho" value="Vermelha"></h3>
+            <h3 id="p4"> Pao Verde <input type="checkbox" name="verde" value="Verde"></h3>
+            <h3 id="p5"> Pao de Abobora <input type="checkbox" name="abobora" value="Abobora"></h3>
+            <h3 id="p6"> Pao de Brioche <input type="checkbox" name="brioche" value="Brioche"></h3>
+            </div>
+            <div class="checkin2">
+            <h3 id="p7"> Pao Prete <input type="checkbox" name="prete" value="Prete"></h3>
+            <h3 id="p8"> Farelo de Trigo <input type="checkbox" name="trigo" value="Farelo"></h3>
+            <h3 id="p9"> Pao de Cerveja <input type="checkbox" name="cerveja" value="Cerveja"></h3>
+            <h3 id="p10"> Pao Australiano <input type="checkbox" name="australiano" value="Australiano"></h3>
+            <h3 id="p11"> Pao integral <input type="checkbox" name="integral" value="Integral"></h3>
+            <h3 id="p12"> Pao de Gegilim <input type="checkbox" name="gegilim" value="Pao Gegilim"></h3>
+            </div>
+      
+          -->

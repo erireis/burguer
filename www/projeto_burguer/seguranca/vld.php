@@ -6,7 +6,7 @@ session_start();
 @$senha = $_POST['senha'];
 // conectar com o bando de dados.
 
-$con = mysql_connect("localhost", "root", "") or die ("Sem conexão com o servidor");
+$conn = mysql_connect("localhost", "root", "") or die ("Sem conexão com o servidor");
 $select = mysql_select_db("mydb") or die("Sem acesso ao DB, Entre em contato com o Administrador, gilson_sales@bytecode.com.br");
 
 // A variavel $result pega as varias $login e $senha, faz uma pesquisa na tabela de usuarios

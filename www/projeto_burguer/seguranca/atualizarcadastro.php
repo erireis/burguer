@@ -2,7 +2,7 @@
 <?php
 include '../seguranca/sessao.php';
 ?>
-<html lang="en">
+<html lang="pt">
 
   <head>
 
@@ -26,6 +26,9 @@ include '../seguranca/sessao.php';
           padding-top: 56px;
         }
       }
+      h2{
+          color: #ffffff;
+      }
 
     </style>
 
@@ -37,45 +40,66 @@ include '../seguranca/sessao.php';
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Bem vindo</a>
-        <?php echo "$logado" ?>
+        <h2> <?php echo "$logado" ?> </h2>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+                <a class="nav-link" href="usuario.php">Inicio
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="../cardapio/primeiropasso.php">Pedidos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+                <a class="nav-link" href="#">Historico</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="consulta.php">Cadastro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" <?php closedir($logado) ?> > Encerrar</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
+<?php include './conexao.php';?>
     <!-- Page Content -->
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-          <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
+          <h1 class="mt-5">Atualize seu Cadastro</h1>
+          <p class="lead">Para melhor atendimento, mantenha seus dados sempre atualizados.</p>
           <ul class="list-unstyled">
-            <li>Bootstrap 4.0.0-beta</li>
-            <li>jQuery 3.2.1</li>
+              <div>
+                  <?php
+// connec+on ….
+$sql = "SELECT nome,  FROM usuarios";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) { // output data of each row
+while($row = mysqli_fetch_assoc($result)) {
+echo "id: " . $row["id"]. " - Nome: " . $row["nome"].
+"<br>"; }
+} else {
+echo "0 results";
+}
+mysqli_close($conn);
+?>
+                  
+                  
+              </div>
+            <li></li>
           </ul>
         </div>
       </div>
     </div>
 
+    
+    
     <!-- Bootstrap core JavaScript -->
     <script src="../css/vendor/jquery/jquery.min.js"></script>
     <script src="../css/vendor/popper/popper.min.js"></script>

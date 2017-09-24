@@ -26,6 +26,9 @@ include '../seguranca/sessao.php';
           padding-top: 56px;
         }
       }
+      h2{
+          color: #ffffff;
+      }
 
     </style>
 
@@ -37,7 +40,7 @@ include '../seguranca/sessao.php';
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Bem vindo</a>
-        <?php echo "$logado" ?>
+        <h2> <?php echo "$logado" ?> </h2>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,7 +58,10 @@ include '../seguranca/sessao.php';
                 <a class="nav-link" href="#">Historico</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Cadastro</a>
+                <a class="nav-link" href="atualizarcadastro.php">Cadastro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="encerrar.php"> Encerrar</a>
             </li>
           </ul>
         </div>

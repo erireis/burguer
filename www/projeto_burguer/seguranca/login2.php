@@ -35,8 +35,7 @@
                                     <input id="password" name="senha" required="required" type="password" placeholder="Sua senha" /> 
                                 </p>
                                 <p class="keeplogin"> 
-									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-									<label for="loginkeeping">Manter logado</label>
+                                                                            
 								</p>
                                 <p class="login button">
                                     <input type="submit"  value="Logar">
