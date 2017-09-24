@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
-include '../seguranca/sessao.php';
+//include '../seguranca/sessao.php';
+session_star();
+
 ?>
 <html lang="pt">
 
@@ -76,8 +78,8 @@ include '../seguranca/sessao.php';
           <ul class="list-unstyled">
               <div>
                   <?php
-                  require './conexao.php';
-            $sql = "SELECT nome, cpf, celular, endereco, numero, cep, cidade, bairro FROM usuarios";
+                  require 'conexao.php';
+            $sql = "SELECT nome, cpf, celular, endereco, numero, cep, cidade, bairro FROM usuarios limit 1";
             $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
             echo  '</br>';

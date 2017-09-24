@@ -1,4 +1,3 @@
-<head>
 <?php  
 /* esse bloco de código em php verifica se existe a sessão
  */
@@ -10,5 +9,5 @@ if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == tru
 	echo "<script>location.href='http://localhost/projeto_burguer/index.php';</script>";
 	}
 $logado = $_SESSION['login'];
-?>
+
 
