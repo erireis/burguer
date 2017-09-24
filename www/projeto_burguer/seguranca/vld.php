@@ -6,14 +6,14 @@ session_start();
 @$senha = $_POST['senha'];
 // conectar com o bando de dados.
 
-$conn = mysql_connect("localhost", "root", "") or die ("Sem conexão com o servidor");
-$select = mysql_select_db("mydb") or die("Sem acesso ao DB, Entre em contato com o Administrador, gilson_sales@bytecode.com.br");
-
+//$conn = mysql_connect("localhost", "root", "") or die ("Sem conexão com o servidor");
+//$select = mysql_select_db("mydb") or die("Sem acesso ao DB, Entre em contato com o Administrador, eriveltonreis@gmail.com");
+require './conexao.php';
 // A variavel $result pega as varias $login e $senha, faz uma pesquisa na tabela de usuarios
 /* @var $result type */
-$result = mysql_query("SELECT * FROM `USUARIOS` WHERE `login` = '$login' AND `senha` = '$senha'");
+$result = mysqli_query($conn, "SELECT * FROM `USUARIOS` WHERE `login` = '$login' AND `senha` = '$senha'");
 /* Logo abaixo temos um bloco com if e else! */
-if(mysql_num_rows ($result) > 0 )
+if(mysqli_num_rows ($result) == 1 )
 {
 $_SESSION['login'] = $login;
 $_SESSION['senha'] = $senha;
