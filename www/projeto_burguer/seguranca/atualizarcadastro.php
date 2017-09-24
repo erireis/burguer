@@ -61,13 +61,12 @@ include '../seguranca/sessao.php';
                 <a class="nav-link" href="consulta.php">Cadastro</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" <?php closedir($logado) ?> > Encerrar</a>
+                <a class="nav-link" href="encerrar.php"> > Encerrar</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-<?php include './conexao.php';?>
     <!-- Page Content -->
     <div class="container">
       <div class="row">
@@ -77,17 +76,33 @@ include '../seguranca/sessao.php';
           <ul class="list-unstyled">
               <div>
                   <?php
-// connec+on ….
-$sql = "SELECT nome,  FROM usuarios";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) { // output data of each row
-while($row = mysqli_fetch_assoc($result)) {
-echo "id: " . $row["id"]. " - Nome: " . $row["nome"].
-"<br>"; }
-} else {
-echo "0 results";
-}
-mysqli_close($conn);
+                  require './conexao.php';
+            $sql = "SELECT nome, cpf, celular, endereco, numero, cep, cidade, bairro FROM usuarios";
+            $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+            echo  '</br>';
+        while($row = mysqli_fetch_assoc($result)) {
+            echo "nome: " . $row["nome"];
+            echo  '</br>';
+            echo "cpf: " . $row["cpf"];
+            echo  '</br>';
+            echo "Telefone: " . $row["numero"];
+            echo  '</br>';
+            echo "endereco: " . $row["endereco"];
+            echo  '</br>';
+            echo "numero: " . $row["numero"];
+            echo  '</br>';
+            echo "cep: " . $row["cep"];
+            echo  '</br>';
+            echo "cidade" . $row["cidade"];
+            echo  '</br>';
+            echo "bairro: " . $row["bairro"];
+
+        }
+        echo '</br>';
+    } else {
+        echo "0 results";
+    }
 ?>
                   
                   
