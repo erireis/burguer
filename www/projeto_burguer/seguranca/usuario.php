@@ -15,6 +15,7 @@ include '../seguranca/sessao.php';
 
     <!-- Bootstrap core CSS -->
     <link href="../css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 
 
     <!-- Custom styles for this template -->
     <style>
@@ -52,10 +53,10 @@ include '../seguranca/sessao.php';
               </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../cardapio/primeiropasso.php">Pedidos</a>
+                <a class="nav-link" href="../cardapio/pedido.php">Pedidos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Historico</a>
+                <a class="nav-link" href="../seguranca/historico.php">Historico</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="atualizarcadastro.php">Cadastro</a>
@@ -76,7 +77,7 @@ include '../seguranca/sessao.php';
           <p class="lead">Monte seu hamuburguer com diversas opções de ingredientes.</p>
           <ul class="list-unstyled">
               <div>
-                  <li><a href="../cardapio/primeiropasso.php"><img src="../imagens/botaopedido.png" </a></li>
+                  <li><a href="../cardapio/pedido.php"><img src="../imagens/botaopedido.png" </a></li>
               </div>
             <li></li>
           </ul>

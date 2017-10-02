@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <?php
-include '../seguranca/sessao.php';
-session_star();
 
-?>
+include '../seguranca/sessao.php'; ?>
+
+<!DOCTYPE html>
 <html lang="pt">
 
   <head>
@@ -17,6 +16,7 @@ session_star();
 
     <!-- Bootstrap core CSS -->
     <link href="../css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 
 
     <!-- Custom styles for this template -->
     <style>
@@ -54,60 +54,65 @@ session_star();
               </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../cardapio/primeiropasso.php">Pedidos</a>
+                <a class="nav-link" href="../cardapio/pedido.php">Pedidos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Historico</a>
+                <a class="nav-link" href="../seguranca/historico.php">Historico</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="consulta.php">Cadastro</a>
+                <a class="nav-link" href="atualizarcadastro.php">Cadastro</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="encerrar.php"> > Encerrar</a>
+                <a class="nav-link" href="encerrar.php"> Encerrar</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <!-- Page Content -->
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h1 class="mt-5">Atualize seu Cadastro</h1>
-          <p class="lead">Para melhor atendimento, mantenha seus dados sempre atualizados.</p>
+          <h1 class="mt-5">Historico</h1>
+          <p class="lead">Veja como qual foi melhor hamburguer que voê montoou!!</p>
           <ul class="list-unstyled">
               <div>
+                  <?php include_once './conexao.php';;?>
+                  <?php  $busca = "SELECT * FROM pedidos"; ?>
+                  <?php  $total_reg = "4"; ?>
+                    <?php  $pagina=$_GET['historico'];
+                                if (!$pagina) {
+                                    $pc = "1";
+                                       } else {
+                                            $pc = $pagina; } ?>
+                  <?php   
+                  $inicio = $pc - 1;   
+                  $inicio = $inicio * $total_reg;  
+                  ?>
                   <?php
-                  require 'conexao.php';
-            $sql = "SELECT nome, cpf, celular, endereco, numero, cep, cidade, bairro FROM usuarios limit 1";
-            $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-            echo  '</br>';
-        while($row = mysqli_fetch_assoc($result)) {
-            echo "nome: " . $row["nome"];
-            echo  '</br>';
-            echo "cpf: " . $row["cpf"];
-            echo  '</br>';
-            echo "Telefone: " . $row["numero"];
-            echo  '</br>';
-            echo "endereco: " . $row["endereco"];
-            echo  '</br>';
-            echo "numero: " . $row["numero"];
-            echo  '</br>';
-            echo "cep: " . $row["cep"];
-            echo  '</br>';
-            echo "cidade" . $row["cidade"];
-            echo  '</br>';
-            echo "bairro: " . $row["bairro"];
-
-        }
-        echo '</br>';
-    } else {
-        echo "0 results";
-    }
-?>
-                  
-                  
+                  $limite = mysqli_query("$busca LIMIT $inicio,$total_reg");
+                  $todos = mysqli_query("$busca");
+                  $tr = mysqli_num_rows($todos); // verifica o número total de registros
+                  $tp = $tr / $total_reg; // verifica o número total de páginas
+ 
+  // vamos criar a visualização
+                  while ($dados = mysqli_fetch_array($limite, $conn)) {
+                  $nome = $dados["id"];
+                  echo "Nº pedido: $nome<br>";
+  }
+ 
+  // agora vamos criar os botões "Anterior e próximo"
+                $anterior = $pc -1;
+                $proximo = $pc +1;
+                if ($pc>1) {
+                    echo " <a href='?pagina=$anterior'><- Anterior</a> ";
+                    }
+                    echo "|";
+                    if ($pc<$tp) {
+                        echo " <a href='?pagina=$proximo'>Próxima -></a>";
+                        }
+                        ?>
               </div>
             <li></li>
           </ul>
@@ -115,8 +120,6 @@ session_star();
       </div>
     </div>
 
-    
-    
     <!-- Bootstrap core JavaScript -->
     <script src="../css/vendor/jquery/jquery.min.js"></script>
     <script src="../css/vendor/popper/popper.min.js"></script>
@@ -125,3 +128,4 @@ session_star();
   </body>
 
 </html>
+

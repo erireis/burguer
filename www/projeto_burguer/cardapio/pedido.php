@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<?php
-include '../seguranca/sessao.php';
+<?php 
+include_once("../seguranca/conexao.php");
+//Verificar se estÃ¡ sendo passado na URL a pÃ¡gina atual, senao Ã© atribuido a pagina 
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
+//Selecionar todos os cursos da tabela
+$result_itens = "SELECT * FROM itens";
+$resultado_itens = mysqli_query($conn, $result_itens);
+
+//Contar o total de cursos
+$total_itens = mysqli_num_rows($resultado_itens);
+
+//Seta a quantidade de cursos por pagina
+$quantidade_itens = 10;
+
+//calcular o nÃºmero de pagina necessÃ¡rias para apresentar os cursos
+$num_pagina = ceil($total_itens/$quantidade_itens);
+
+//Calcular o inicio da visualizacao
+$incio = ($quantidade_itens*$pagina)-$quantidade_itens;
+
+//Selecionar os cursos a serem apresentado na pÃ¡gina
+$result_itens = "SELECT * FROM itens limit $incio, $quantidade_itens";
+$resultado_itens = mysqli_query($conn, $result_itens);
+$total_itens = mysqli_num_rows($resultado_itens);
 ?>
+<!DOCTYPE html>
 <html lang="pt">
 
   <head>
+<?php include '../seguranca/sessao.php'; ?>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +51,9 @@ include '../seguranca/sessao.php';
       }
     .checkin1{position: absolute; left: 450px; top: 210px;}
     .checkin2{position: absolute; left: 950px; top: 210px;}
-    
+    h2{
+          color: #ffffff;
+      }
 
     </style>
 
@@ -39,7 +65,7 @@ include '../seguranca/sessao.php';
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Bem vindo</a>
-        <?php echo "$logado" ?>
+        <h2> <?php echo "$logado" ?> </h2>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,19 +93,54 @@ include '../seguranca/sessao.php';
     <!-- Page Content -->
     <div class="container">
       <div class="row">
-            <?php
-            $sql = mysqli_query("SELECT * FROM itens", $conn);
-            while($res = mysqli_fetch_array($sql)){
-            ?>
-          <li>
-              <span><?php echo $res ['nome'] ?></span>
-              <strong><?php echo $res ['valor_unit'] ?></strong>
-          </li>
-          <?php
-            }
-          ?>
-          </div>
+          <?php while($rows_cursos = mysqli_fetch_assoc($resultado_itens)){ ?>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img src="imagens/produto.jpg" alt="...">
+							<div class="caption text-center">
+                                                            <a href="pedido.php?id_curso=<?php echo $rows_cursos['id']; ?>"><h3><?php echo $rows_cursos['nome']; ?></h3></a>
+								<p><a href="#" class="btn btn-primary" role="button">Comprar</a> </p>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+            
+          
     </div>
+        <?php
+				//Verificar a pagina anterior e posterior
+				$pagina_anterior = $pagina - 1;
+				$pagina_posterior = $pagina + 1;
+			?>
+        <nav class="text-center">
+				<ul class="pagination">
+					<li>
+						<?php
+						if($pagina_anterior != 0){ ?>
+                                            <a href="pedido.php?pagina=<?php echo $pagina_anterior; ?>" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						<?php }else{ ?>
+							<span aria-hidden="true">&laquo;</span>
+					<?php }  ?>
+					</li>
+					<?php 
+					//Apresentar a paginacao
+					for($i = 1; $i < $num_pagina + 1; $i++){ ?>
+                                        <li><a href="pedido.php?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+					<?php } ?>
+					<li>
+						<?php
+						if($pagina_posterior <= $num_pagina){ ?>
+							<a href="pagina.php?pagina=<?php echo $pagina_posterior; ?>" aria-label="Previous">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						<?php }else{ ?>
+							<span aria-hidden="true">&raquo;</span>
+					<?php }  ?>
+					</li>
+				</ul>
+			</nav>
 
     <!-- Bootstrap core JavaScript -->
     <script src="../css/vendor/jquery/jquery.min.js"></script>
